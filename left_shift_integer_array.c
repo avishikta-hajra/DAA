@@ -1,3 +1,12 @@
+/*
+
+Problem 1 :
+
+Left Shifting an array of integers by d positions
+eg : {7, 8, 5, 6, 4, 3} when left shifted by d=3 => {6, 4, 3, 7, 8, 5}
+
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -27,7 +36,6 @@ void leftShift(int *arr, int n, int d) // O(n)
 
 void printArray(int *arr, int n) // O(n)
 {
-    printf("The array is : ");
     for (int i = 0; i < n; i++)
     {
         printf("%d ", arr[i]);
@@ -63,8 +71,10 @@ int main()
     printf("Enter the no. of positions to be left shifted by : ");
     scanf("%d", &d);
 
+    printf("The original array is : ");
     printArray(arr, n);
     leftShift(arr, n, d);
+    printf("The resultant array is : ");
     printArray(arr, n);
 
     free(arr);
