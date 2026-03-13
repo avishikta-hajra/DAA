@@ -1,0 +1,12 @@
+# Default output for GCC/Clang (Linux/macOS)
+a.out
+
+# Windows Executables
+*.exe
+
+# Object files (intermediate compiled files)
+*.o
+*.obj
+
+# Optional: macOS specific directory metadata
+.DS_Store
