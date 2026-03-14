@@ -26,21 +26,21 @@ int compare(const void *a, const void *b)
     return (A->y - B->y);
 }
 
-void maximalPoint(pair *arr, int n)
+void maximalPoint(pair *arr, int n) // O(nlgn)
 {
-    qsort(arr, n, sizeof(pair), compare); // Sorting in ascending order with respect to x-coordinates
+    qsort(arr, n, sizeof(pair), compare); // Sorting in ascending order with respect to x-coords : O(nlgn)
 
     // For A to dominate on B, AND is followed (both coords of A must be greater than B) -> then for B to survive, i.e., for B to be the dominating point, OR is to be met (either x or y of B has to be greater)
     printf("The maximal points are :\n");
     int max_y = arr[n - 1].y; // Rightmost point is always maximal -> no point has greater x to dominate
     printf("(%d, %d) ", arr[n - 1].x, arr[n - 1].y);
 
-    for (int i = n - 2; i >= 0; i--)
+    for (int i = n - 2; i >= 0; i--) // O(n)
     {
         if (arr[i].y > max_y) // taller in the left -> no point with greater x has greater y to dominate
         {
             printf("(%d, %d) ", arr[i].x, arr[i].y);
-            max_y = arr[i].y; // Updating the tallest
+            max_y = arr[i].y; // Updating the height
         }
     }
     printf("\n");
@@ -83,7 +83,6 @@ int main()
 
     printArray(arr, n);
     maximalPoint(arr, n);
-    printArray(arr, n);
 
     free(arr);
     return 0;
